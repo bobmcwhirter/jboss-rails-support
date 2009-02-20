@@ -25,9 +25,9 @@ class BaseEndpoint < BaseEndpointRb
     @security
   end
 
-  #def initialize()
-    #super
-  #end
+  def log
+    self.getLogger()
+  end
 
   def request
     self.getRequest()
