@@ -15,5 +15,3 @@ end
 end # Jobs
 end # JBoss
 
-
-puts "created JBoss::Jobs::BaseJob"
