@@ -1,4 +1,4 @@
-PKG_VERSION='0.9.0.3.1'
+PKG_VERSION='0.9.0.3.2'
 PKG_FILES= [
     'init.rb',
   ] + Dir[ 'lib/**/*.rb' ] + Dir[ '*.gemspec' ]
