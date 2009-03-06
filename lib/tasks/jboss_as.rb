@@ -9,5 +9,10 @@ namespace :jboss do
       puts "JBoss-Rails server: #{JBoss::RakeUtils.server_dir}"
     end
 
+    desc "Run JBoss-Rails server"
+    task :run=>[ :check ] do
+      JBoss::RakeUtils.run_server
+    end
+
   end
 end

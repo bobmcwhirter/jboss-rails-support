@@ -1,3 +1,4 @@
+require 'open3'
 
 module JBoss
   module RakeUtils
@@ -23,6 +24,29 @@ module JBoss
       raise "no deployer" if matches.empty?
       raise "too many matching deployers" if ( matches.size > 1 )
       return matches[0]
+    end
+    def self.run_server()
+      Dir.chdir(jboss_home) do
+        old_trap = trap("INT") do
+          puts "caught SIGINT, shutting down"
+        end
+        pid = Open3.popen3( "/bin/sh bin/run.sh -c #{jboss_conf}" ) do |stdin, stdout, stderr|
+          #stdin.close
+          threads = []
+          threads << Thread.new(stdout) do |input_str|
+            while ( ( l = input_str.gets ) != nil )
+              puts l 
+            end
+          end
+          threads << Thread.new(stderr) do |input_str|
+            while ( ( l = input_str.gets ) != nil )  
+              puts l 
+            end
+          end
+          threads.each{|t|t.join}
+        end
+        trap("INT", old_trap )
+      end
     end
     def self.explode_deployer()
       if ( File.directory?( deployer ) )
