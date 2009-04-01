@@ -1,0 +1,9 @@
+
+require 'jruby'
+
+Dir[ File.dirname(__FILE__) + '/../client/lib/core/*.jar' ].each do |jar|
+  require jar
+end
+Dir[ File.dirname(__FILE__) + '/../client/lib/dependencies/*.jar' ].each do |jar|
+  require jar
+end
