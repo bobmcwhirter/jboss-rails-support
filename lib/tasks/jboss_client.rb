@@ -14,6 +14,16 @@ namespace :jboss do
       "jboss-messaging-client.jar",
       "jboss-javaee.jar",
       "jboss-logging-spi.jar",
+      "jboss-aop-client.jar",
+      "jboss-remoting.jar",
+      "jboss-common-core.jar",
+      "jboss-mdr.jar",
+      "jnp-client.jar",
+      "trove.jar",
+      "javassist.jar",
+      "concurrent.jar",
+      "log4j.jar",
+      #"jboss-client.jar",
     ]
 
     directory client_lib_dir
