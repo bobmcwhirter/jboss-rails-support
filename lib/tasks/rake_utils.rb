@@ -1,4 +1,5 @@
 require 'open3'
+require 'tmpdir'
 
 module JBoss
   module RakeUtils
