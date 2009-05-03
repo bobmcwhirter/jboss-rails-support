@@ -27,6 +27,7 @@ namespace :jboss do
 
       VENDOR_PLUGINS = "#{RAILS_ROOT}/vendor/plugins"
 
+      task :check=>['jboss:as:check']
     
       desc "Install needed JDBC drivers to vendor/plugins/"
       task :'install' do
